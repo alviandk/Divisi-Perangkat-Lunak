@@ -20,3 +20,6 @@ class DplUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+
+
+# https://testdriven.io/blog/django-social-auth/

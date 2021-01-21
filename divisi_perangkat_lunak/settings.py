@@ -32,12 +32,26 @@ ALLOWED_HOSTS = allowed_hosts.split(',')
 # Application definition
 
 INSTALLED_APPS = [
+    # django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django.contrib.sites",  
+
+    # 3rd party
+    'allauth', 
+    'allauth.account', 
+    'allauth.socialaccount', 
+
+    # social providers
+    # 'allauth.socialaccount.providers.facebook', 
+    'allauth.socialaccount.providers.github',
+    # 'allauth.socialaccount.providers.google', 
+
+    # internal apps
     'auths',
     'blog',
     'course',
@@ -62,7 +76,7 @@ ROOT_URLCONF = 'divisi_perangkat_lunak.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        "DIRS": [str(BASE_DIR.joinpath("templates"))],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,4 +141,26 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SITE_ID = 1
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
+
+ACCOUNT_LOGOUT_ON_GET = True
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+
+ACCOUNT_ALLOW_REGISTRATION = True
+SOCIALACCOUNT_ADAPTER = 'user.adapters.SocialAccountAdapter'
+SOCIALACCOUNT_EMAIL_VERIFICATION = 'none'
+SOCIALACCOUNT_AUTO_SIGNUP = True
+
 AUTH_USER_MODEL = 'user.DplUser'
+LOGIN_REDIRECT_URL = 'home'
