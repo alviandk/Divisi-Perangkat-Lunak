@@ -20,7 +20,11 @@ from .views import Home
 
 
 urlpatterns = [
+    path("", Home.as_view(), name="home"),
     path("admin/", admin.site.urls),
     path("accounts/", include("allauth.urls")), 
-    path("", Home.as_view(), name="home"),
+    # path("user/", include("user.urls")), 
+    # path("blog/", include("blog.urls")), 
+    # path("faq/", include("faq.urls")), 
+    # path("static/", include("static_page.urls")),    
 ]
