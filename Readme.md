@@ -14,3 +14,7 @@ Divisi Perangkat Lunak merupakan platform untuk mengembangkan talenta di bidang 
 * Bahasa Pemrograman: Python
 * Web Framework: Django
 * Platform: Web Browser
+
+# Wiki
+* [Product Requirement Document of MVP](https://github.com/alviandk/Divisi-Perangkat-Lunak/wiki/Divisi-Perangkat-Lunak-MVP-PRD)
+* [User Journey](https://github.com/alviandk/Divisi-Perangkat-Lunak/wiki/User-Journey-MVP)
